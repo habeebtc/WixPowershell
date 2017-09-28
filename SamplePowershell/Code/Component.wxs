@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include Settings.wxi ?>   <!-- Apply customised settings -->
+  
+	<Fragment>
+    
+    <ComponentGroup Id="Feature1Components" Directory="INSTALLDIR">
+ 
+      <!--Note - Provide different GUID for Component. Below GUID is just a sample.-->
+      <Component Id="WebDeploy" Guid="{13968E9A-CF6F-4DDF-8979-B28F2B7EBE73}" >
+
+        <!--Note - Below InstallMe.txt file is just a sample.-->
+        <File Id="WebDeployPackage" Source="$(var.DoStuffWCF.ProjectDir)DoStuffWCF.zip" KeyPath="yes"/>
+ 
+      </Component>
+      
+    </ComponentGroup>
+    
+	</Fragment>
+</Wix>

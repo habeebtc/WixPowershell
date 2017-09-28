@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <UI>
+      <Dialog Id="AzureLogin" X="50" Y="50" Width="370" Height="266" Title="[ProductName] Setup" NoMinimize="yes">
+        <Control Id="cboSubs" Type="ComboBox" X="21" Y="160" Width="287" Height="16" Property="AZURE_SUB" TabSkip="no" Sorted="yes" Text="AZURE_SUB">
+          <ComboBox Property="AZURE_SUB" />
+        </Control>
+        <Control Id="lblAcct" Type="Text" X="16" Y="57" Width="348" Height="14" Text="Connect using:" TabSkip="no" NoPrefix="yes" />
+        <Control Id="lblLoginID" Type="Text" X="40" Y="72" Width="48" Height="13" Text="&amp;Login ID:" TabSkip="no"></Control>
+        <Control Id="EdtLogin" Type="Edit" X="90" Y="70" Width="218" Height="15" Property="AZURE_USER" TabSkip="no">
+          <Condition Action="disable">NOT AZURE_ACCT_INVALID</Condition>
+        </Control>
+        <Control Id="lblPswd" Type="Text" X="40" Y="88" Width="47" Height="13" Text="&amp;Password:" TabSkip="no"></Control>
+        <Control Id="EdtPswd" Type="Edit" X="90" Y="88" Width="218" Height="15" Property="AZURE_PASS" TabSkip="no" Password="yes">
+          <Condition Action="disable">NOT AZURE_ACCT_INVALID</Condition>
+        </Control>
+
+        <Control Id="acctErr" Type="Text" Height="15" Width="218" X="90" Y="112" Text="{&amp;MSSansBold8}Azure login credentials invalid!" Hidden="yes">
+          <Condition Action="show">AZURE_ACCT_INVALID = "1"</Condition>
+        </Control>
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="&amp;Back" TabSkip="no"></Control>
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Text="&amp;Next" TabSkip="no" Default="yes">
+          <Publish Event="DoAction" Value="ValidateAzureRMAccount" Order="2">1</Publish>
+          <Publish Event="DoAction" Value="GetAzureRMResourceGroups">AZURE_ACCT_INVALID &lt;&gt; "1" AND AZURE_SUB</Publish>
+          <Publish Event="DoAction" Value="GenerateUID">AZURE_ACCT_INVALID &lt;&gt; "1" AND AZURE_SUB</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Text="Cancel" TabSkip="no" Cancel="yes">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="lblSub" Type="Text" X="21" Y="146" Width="348" Height="14" Text="&amp;Azure Subscription" TabSkip="no" />
+        <Control Id="lblSubIntro" Type="Text" X="17" Y="50" Width="345" Height="14" TabSkip="no" Transparent="yes" />
+        <Control Id="DlgDesc" Type="Text" X="21" Y="23" Width="292" Height="25" Text="Enter Azure account credentials and select Subscription" TabSkip="yes" Transparent="yes" />
+        <Control Id="DlgTitle" Type="Text" X="13" Y="7" Width="292" Height="25" Text="{&amp;MSSansBold8}Azure Login" TabSkip="yes" Transparent="yes" />
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="WixUI_Bmp_Banner" />
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="374" Height="2" TabSkip="yes" Disabled="yes" />
+        <Control Id="DlgLine" Type="Line" X="0" Y="234" Width="374" Height="2" TabSkip="yes" Disabled="yes" />
+        <Control Id="btnLogin" Type="PushButton" Height="17" Width="56" X="314" Y="68" Text="&amp;Login" >
+          <Publish Event="DoAction" Value="ValidateAzureRMAccount"></Publish>
+        </Control>
+
+      </Dialog>
+    </UI>
+  </Fragment>
+</Wix>

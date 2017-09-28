@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <UI>
+      <Dialog Id="DeploymentDetails" X="50" Y="50" Width="370" Height="266" Title="[ProductName] Setup" NoMinimize="yes">
+        <Control Id="cboResourceGroups" Type="ComboBox" X="21" Y="160" Width="287" Height="16" Property="AZURE_RG" TabSkip="no" Sorted="yes" Text="AZURE_RG">
+          <ComboBox Property="AZURE_RG" />
+        </Control>
+        <Control Id="lblAcct" Type="Text" X="16" Y="96" Width="67" Height="14" Text="Site name:" TabSkip="no" NoPrefix="yes" />
+        <Control Id="tplErr" Type="Text" Height="15" Width="287" X="21" Y="186" Text="{&amp;MSSansBold8}Azure template is invalid, based on input parameters!" Hidden="yes">
+          <Condition Action="show">AZURE_TEMPLATE_INVALID = "1"</Condition>
+        </Control>
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="&amp;Back" TabSkip="no"></Control>
+        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Text="&amp;Next" TabSkip="no" Default="yes">
+          <Publish Event="DoAction" Value="ValidateAzureTemplate" Order="2">1</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Text="Cancel" TabSkip="no" Cancel="yes">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <!--TODO: Add text box for UID and base site name, only 2 params provided to Template (all objects will be SITE_NAME + Abbreviation + UID)-->
+        <Control Id="lblSub" Type="Text" X="21" Y="146" Width="348" Height="14" Text="&amp;Azure Resource Group" TabSkip="no" />
+        <Control Id="DlgDesc" Type="Text" X="21" Y="23" Width="292" Height="25" Text="Enter Site configuration details." TabSkip="yes" Transparent="yes" />
+        <Control Id="DlgTitle" Type="Text" X="13" Y="7" Width="292" Height="25" Text="{&amp;MSSansBold8}Azure Login" TabSkip="yes" Transparent="yes" />
+        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="WixUI_Bmp_Banner" />
+        <Control Id="BannerLine" Type="Line" X="0" Y="44" Width="374" Height="2" TabSkip="yes" Disabled="yes" />
+        <Control Id="DlgLine" Type="Line" X="0" Y="234" Width="374" Height="2" TabSkip="yes" Disabled="yes" />
+        <Control Id="label1" Type="Text" Height="14" Width="67" X="253" Y="96" Text="Object suffix:" />
+        <Control Id="textBox2" Type="Edit" Height="15" Width="48" X="260" Y="112" />
+        <Control Id="textBox1" Type="Edit" Height="15" Width="225" X="21" Y="112" />
+        <Control Id="label2" Type="Text" Height="36" Width="344" X="16" Y="52" Text="Azure requires unique object names within a particular region/resource group.  The Site Name and Object Suffix will be used to create a unique naming convention, so every run of this installer will avoid naming collisions with previous runs of the installation." />
+      </Dialog>
+    </UI>
+	</Fragment>
+</Wix>

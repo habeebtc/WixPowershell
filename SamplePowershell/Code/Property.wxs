@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    
+    <!-- Begin Property-->
+    <Property Id="INSTALLLEVEL" Value="100"/>
+    <!--<Property Id="ALLUSERS" Value="1"/>-->
+    <Property Id="ARPCOMMENTS" Value="!(loc.Comments)"/>
+    <Property Id="ARPCONTACT" Value="!(loc.Contact)"/>
+    <Property Id="ARPHELPLINK" Value="!(loc.HelpLink)"/>
+    <Property Id="ARPHELPTELEPHONE" Value="!(loc.HelpTelephone)"/>
+    <Property Id="ARPINSTALLLOCATION" Value="[INSTALLDIR]"/>
+    <Property Id="ARPPRODUCTICON" Value="AHS.ico"/>
+    <!--<Property Id="ARPREADME" Value="!(loc.ReadMe)"/>-->
+    <Property Id="ARPURLINFOABOUT" Value="!(loc.UrlInfoAbout)"/>
+    <Property Id="ARPURLUPDATEINFO" Value="!(loc.UrlUpdateInfo)"/>
+    <Property Id="PSFUNCTION" Value="Test-Me"/>
+    <Property Id="AZURE_ACCT_INVALID" Value="0"></Property>
+    <Property Id="MsiLogging" Value="voicewarmupx"/>
+    <!-- End Property--> 
+    
+  </Fragment>
+</Wix>

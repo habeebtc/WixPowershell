@@ -1,0 +1,17 @@
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\bin\Debug\PowershellExtension.dll
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\bin\Debug\PowershellExtension.pdb
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\bin\Debug\wix.dll
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\bin\Debug\Microsoft.Deployment.Resources.dll
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.dll
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.pdb
+C:\Users\CROYS\Documents\Visual Studio 2015\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.csprojResolveAssemblyReference.cache
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\bin\Debug\PowershellExtension.dll
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\bin\Debug\PowershellExtension.pdb
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\bin\Debug\wix.dll
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\bin\Debug\Microsoft.Deployment.Resources.dll
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.csprojResolveAssemblyReference.cache
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.csproj.CoreCompileInputs.cache
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.dll
+C:\Users\CROYS\Documents\Visual Studio 2017\Projects\SamplePowershell\PowershellExtension\obj\Debug\PowershellExtension.pdb

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)Resources\welcome_Allscripts.bmp"/>
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)Resources\banner_Allscripts.bmp"/>
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)Resources\Eula.rtf"/>
+    <UI Id="UI">
+      <!-- See http://wix.sourceforge.net/manual-wix3/WixUI_index.htm for more information-->
+      <UIRef Id="WixUI_Mondo"/>
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="AzureLogin" Order="3">1</Publish>
+      
+      <Publish Dialog="AzureLogin" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="3">1</Publish>
+      <Publish Dialog="AzureLogin" Control="Next" Event="NewDialog" Value="DeploymentDetails" Order="3">1</Publish>
+      
+      <Publish Dialog="DeploymentDetails" Control="Back" Event="NewDialog" Value="AzureLogin" Order="3">1</Publish>
+      <Publish Dialog="DeploymentDetails" Control="Next" Event="NewDialog" Value="VerifyReadyDlg" Order="3">1</Publish>
+      
+      
+      <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="DeploymentDetails" Order="3">1</Publish>
+      
+
+
+    </UI>
+  </Fragment>
+</Wix>

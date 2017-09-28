@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  
+	<Fragment>
+    
+    <!-- Content -->
+    <!--<SetDirectory Id="WINDOWSVOLUME" Value="[WindowsVolume]"/>-->
+
+    <!-- The root of life for any installer. -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="CompanyFolder" Name="!(loc.ManufacturerShortName)">
+          <Directory Id="INSTALLDIR" Name="!(loc.ProductShortName)">
+            
+            <!--<Merge Id="Feature1MM" SourceFile="$(var.Feature1MM.TargetPath)" DiskId="1" Language="1033"/>-->
+            
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+    
+  </Fragment>
+</Wix>

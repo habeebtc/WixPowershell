@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  
+  <Fragment>
+
+    <FeatureGroup Id="feature">
+      
+      <Feature Id="Feature1" Title="!(loc.ProductShortName)" Description="Installs all the files needed for !(loc.ProductShortName)" Level="1" AllowAdvertise="no" ConfigurableDirectory="INSTALLDIR">
+        <ComponentGroupRef Id="Feature1Components"/>
+      </Feature>
+      
+    </FeatureGroup>
+
+  </Fragment>
+  
+</Wix>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<WixLocalization  Culture="en-us" 
+                  Language="1033" 
+                  Codepage="1252"  
+                  xmlns="http://schemas.microsoft.com/wix/2006/localization">
+
+  <String Id="Codepage">1252</String>
+  <String Id="Language">1033</String>
+  
+  <String Id="ProductName">Allscripts WiX</String>
+  <String Id="ProductShortName">WiX</String>
+  
+  <String Id="Manufacturer">Allscripts Healthcare Solutions, Inc.</String>
+  <String Id="ManufacturerShortName">Allscripts</String>
+  
+  <String Id="Keywords">Installer,MSI,Database</String>
+  <String Id="Description">Allscripts SetupTemplate Installer</String>
+  <String Id="BundleName">Allscripts Software Bundle</String>
+
+  <String Id="Comments">Connect is the answer. Health is the outcome. And the time is now to Connect to Health™</String>
+  <String Id="Contact">Allscripts Support</String>
+  <String Id="HelpLink">http://www.Allscripts.com/help</String>
+  <String Id="HelpTelephone">123-456-7890</String>
+  <!--<String Id="ReadMe">"ReadMe.txt"</String>-->
+  <String Id="UrlInfoAbout">http://www.Allscripts.com/about</String>
+  <String Id="UrlUpdateInfo">http://www.Allscripts.com/update</String>
+
+</WixLocalization>

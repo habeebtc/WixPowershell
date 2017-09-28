@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.6</ProductVersion>
+    <ProjectGuid>{898680af-2b22-4624-b267-43ff2c47963c}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>AllscriptsWiXSetup</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <Name>AllscriptsWiXSetupProject</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <SuppressValidation>True</SuppressValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <VerboseOutput>True</VerboseOutput>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <SuppressValidation>True</SuppressValidation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Code\Component.wxs" />
+    <Compile Include="Code\Dialogs\AzureLogin.wxs" />
+    <Compile Include="Code\Dialogs\DeploymentDetails.wxs" />
+    <Compile Include="Code\Directory.wxs" />
+    <Compile Include="Code\Feature.wxs" />
+    <Compile Include="Code\Property.wxs" />
+    <Compile Include="Code\MergeModule.wxs" />
+    <Compile Include="Code\Product.wxs" />
+    <Compile Include="Code\UI.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code" />
+    <Folder Include="Code\Dialogs" />
+    <Folder Include="Deploy" />
+    <Folder Include="Resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Code\Settings.wxi" />
+    <Content Include="Deploy\InstallMe.txt" />
+    <Content Include="Resources\AHS.ico" />
+    <Content Include="Resources\banner_Allscripts.bmp" />
+    <Content Include="Resources\Eula.rtf" />
+    <Content Include="Resources\setup_Allscripts.bmp" />
+    <Content Include="Resources\welcome_Allscripts.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Code\en-us.wxl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DoStuffWCF\DoStuffWCF.csproj">
+      <Name>DoStuffWCF</Name>
+      <Project>{ff1ad97b-759f-4ea9-9dfb-717a78580b31}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\PowershellCA\PowershellCA.csproj">
+      <Name>PowershellCA</Name>
+      <Project>{269864c9-b84f-46c9-9d74-8ea85297f41a}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

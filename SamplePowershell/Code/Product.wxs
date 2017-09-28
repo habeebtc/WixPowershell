@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?include Settings.wxi?>    <!-- Apply customised settings -->
+  
+  <Product Id="$(var.ProductCode)" 
+           Name="!(loc.ProductName)"
+           Version="$(var.Version)"
+           UpgradeCode="$(var.UpgradeCode)"
+           Manufacturer="!(loc.Manufacturer)"
+           Codepage="1252"
+           Language="!(loc.Language)" 
+          >
+    
+		<Package Id="*" 
+             InstallerVersion="301" 
+             Compressed="yes" 
+             InstallScope="perMachine"
+             AdminImage="no" 
+             Comments="!(loc.Comments)" 
+             Description="!(loc.Description)" 
+             InstallPrivileges="elevated" 
+             Keywords="!(loc.Keywords)" 
+             Languages="!(loc.Language)"
+             Manufacturer="!(loc.Manufacturer)" 
+             Platform="x86"
+             ReadOnly="default" 
+             ShortNames="yes" 
+             SummaryCodepage="!(loc.Codepage)"
+             />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed."/>
+
+    <MediaTemplate EmbedCab="yes"/>
+
+    <!-- Begin Resourse File -->
+    <Icon Id="AHS.ico" SourceFile="$(var.ProjectDir)Resources\AHS.ico"/>
+    <!-- End Resourse File -->
+
+    <!-- Begin User Interface -->
+    <UIRef Id="UI"/>
+    <!-- End User Interface -->
+
+    <!-- Begin Feature-->
+    <FeatureGroupRef Id="feature"/>
+    <!-- End Feature-->
+
+    <!-- Begin Property-->
+    <DirectoryRef Id="TARGETDIR"/>
+    <!-- End Property-->
+
+    <!-- Begin Property-->
+    <PropertyRef Id="ARPPRODUCTICON"/>
+    <SetProperty Id="ARPINSTALLLOCATION" Value="[INSTALLDIR]" After="CostFinalize" />
+    <!-- End Property-->
+
+    <Binary Id="PowershellCA" SourceFile="$(var.PowershellCA.TargetDir)PowershellCA.CA.dll"></Binary>
+
+
+        
+    <CustomAction Id="GenerateUID" BinaryKey="PowershellCA" DllEntry="GenerateUID" Execute="immediate"></CustomAction>
+    <CustomAction Id="PublishWebDeploy" BinaryKey="PowershellCA" DllEntry="PublishWebDeploy" Execute="immediate"></CustomAction>
+    <CustomAction Id="ValidateAzureTemplate" BinaryKey="PowershellCA" DllEntry="ValidateAzureTemplate" Execute="immediate"></CustomAction>
+    <CustomAction Id="UninstallRMResources" BinaryKey="PowershellCA" DllEntry="UninstallRMResources" Execute="immediate"></CustomAction>
+    <CustomAction Id="DeployToAzureRMResourceGroup" BinaryKey="PowershellCA" DllEntry="DeployToAzureRMResourceGroup" Execute="immediate"></CustomAction>
+    <CustomAction Id="GetAzureRMResourceGroups" BinaryKey="PowershellCA" DllEntry="GetAzureRMResourceGroups" Execute="immediate"></CustomAction>
+    <CustomAction Id="ValidateAzureRMAccount" BinaryKey="PowershellCA" DllEntry="ValidateAzureRMAccount" Execute="immediate"></CustomAction>
+
+    <InstallExecuteSequence>
+      
+    </InstallExecuteSequence>
+
+    <EnsureTable Id="ComboBox"/>
+  </Product>
+
+</Wix> 

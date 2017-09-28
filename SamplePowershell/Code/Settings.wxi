@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!-- Apply customised settings -->
+
+  <!-- The product GUID ** NORMALLY DO NOT CHANGE!! **-->
+  <!--Below GUID must be changed for related product. Below GUID is just a sample.-->
+  <?define ProductCode="{F1A39772-5C8A-4F78-8A01-62EA58AD9E53}"?>
+
+  <!-- The upgrade GUID ** DO NOT CHANGE AT ALL!! **-->
+  <!--Below GUID must be changed for related product. Below GUID is just a sample.-->
+  <?define UpgradeCode="{73F1BDB6-11E1-11D5-9DC6-00C04F2FC33B}"?>
+
+  <!-- The product version. -->
+  <!--Below Version must be changed for related product. Below Version is just a sample.-->
+  <?define Version="1.0.0.0"?>
+
+  <!-- Source Directory path for packaging artifacts. -->
+  <?define SourceDir=""?>
+
+</Include>
